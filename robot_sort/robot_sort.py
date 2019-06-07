@@ -117,6 +117,8 @@ class SortingRobot:
                     self.move_left()
                     self.swap_item()
                     self.move_right()
+                    
+                    #THIS IS THE KEY TO MAKING THE ROBOT GO BACKWARDS. 
                     self.set_light_off()
                 
                 #lets move this number away for later    
