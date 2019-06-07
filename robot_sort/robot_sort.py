@@ -97,7 +97,7 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
-        pass
+        self.compare_item()
 
 
 if __name__ == "__main__":

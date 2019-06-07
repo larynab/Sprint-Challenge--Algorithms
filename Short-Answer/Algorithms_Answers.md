@@ -30,3 +30,18 @@ b)  sum = 0  ------------------ O(n)
             O(n^4)
 ```
 b) Answer is O(n^4), this is because each loop is exactly the same so times itself(4), with the last loop changing the sum, which is still a basic n.
+
+```
+c)  def bunnyEars(bunnies): -------- O(n)
+      if bunnies == 0: ------------ O(n)
+        return 0 --------------- O(1)
+
+      return 2 + bunnyEars(bunnies-1) -------- n + ( n * (n - 1) ) = O(n)
+
+      function(n) * ( n + 1 ) * return(n)
+      function(n) = return (n + function(n(n))) 
+      function(n) = n + function(n) 
+      O(n)
+      
+```
+c) Answer is 0(n). It took me second to think about this one because it is encapsulating itself, meaning everything is being reduced to the same variable. Even though it expands and there are multiple n's, its still within a main code block that is looking for one solid answer reusing its variables.
