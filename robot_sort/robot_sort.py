@@ -97,18 +97,39 @@ class SortingRobot:
         Sort the robot's list.
         """
         # Fill this out
+        
         #Let there be light!
         while not self.light_is_on():
             self.set_light_on()
+        
         #its going to keep moving right, how do I make it turn around?
-        while self.can_move_right():
-            if self.compare_item() == 0 or self.compare_item() is None:
-                self.swap_item()
-                self.move_right()    
-            else:
-                self.move_left()
+            while self.can_move_right():
+                #need to pick up item in the beginning without going into negative
                 self.swap_item()
                 self.move_right()
+
+                #failed if
+                # if self.compare_item() == 0 or self.compare_item() is None:
+                
+                #compare the next item and move it back and go to next number and wait.
+                if self.compare_item() > 0:
+                    self.swap_item()
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+                    self.set_light_off()
+                
+                #lets move this number away for later    
+                else:
+                    self.move_left()
+                    self.swap_item()
+                    self.move_right()
+            
+            # tricking it to where when the light is off it will move backwards and try compare again
+            if not self.light_is_on():
+                while self.can_move_left():
+                    self.move_left()
+        
         #Had an idea to move left, but exceeded recursion depth.
             # if self.can_move_left():
             #     self.compare_item() == 1
@@ -116,6 +137,7 @@ class SortingRobot:
             #     self.move_left()
             # else:
             #     self.compare_item()
+        
         #what if i do the same thing just left going right.
         # while self.can_move_left():
         #     if self.compare_item() == 1:
